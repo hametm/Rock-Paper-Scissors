@@ -3,36 +3,21 @@ let computerScore = 0;
 let computerSelection;
 let playerSelection;
 
-// DOM stuff
-let rockButton = document.getElementById("rock");
-let paperButton = document.getElementById("paper");
-let scissorsButton = document.getElementById("scissors");
-let results = document.getElementById("results");
-let resultText = document.getElementById("resultText");
-let score = document.getElementById("score");
-let scoreHeader = document.getElementById("scoreHeader");
-let winner = document.createElement("p");
+const btn = document.querySelectorAll(".selection");
+const results = document.getElementById("results");
+const resultText = document.getElementById("resultText");
+const score = document.getElementById("score");
+const scoreHeader = document.getElementById("scoreHeader");
+const winner = document.createElement("p");
 
-// Event listeners
-rockButton.addEventListener('click', () => {
-    playerSelection = rockButton.id;
-    computerPlay();
-    playRound(playerSelection, computerSelection);
+btn.forEach(button => {
+    button.addEventListener('click', () => {
+        playerSelection = button.id;
+        computerPlay();
+        playRound(playerSelection, computerSelection);
+    })
 });
 
-paperButton.addEventListener('click', () => {
-    playerSelection = paperButton.id;
-    computerPlay();
-    playRound(playerSelection, computerSelection);
-});
-
-scissorsButton.addEventListener('click', () => {
-    playerSelection = scissorsButton.id;
-    computerPlay();
-    playRound(playerSelection, computerSelection);
-});
-
-// Actual functions
 function computerPlay() {
     let gameSelections = ["rock", "paper", "scissors"];
     computerSelection = gameSelections[Math.floor(Math.random() * 3)];
@@ -67,28 +52,29 @@ function playRound(playerSelection, computerSelection) {
 function gameOver() {
     if (playerScore === 5) {
         winner.textContent = "You win!";
-        winner.style.color = "pink";
-        winner.style.fontSize = "50px";
-        winner.style.fontWeight = "bold";
-        winner.style.textShadow = "black 1px 0 10px";
-        winner.style.textAlign = "center";
-        winner.style.marginTop = "0px";
+        winner.style.fontSize = "36px";
         results.appendChild(winner);
-        playerScore = 0;
-        computerScore = 0;
+        setWinnerStyle();
     }
     if (computerScore === 5) {
         winner.textContent = "You lose! Robots are taking over the world... OUR WORLD!";
+        winner.style.fontSize = "30px";
         results.appendChild(winner);
-        winner.style.color = "pink";
-        winner.style.fontSize = "36px";
-        winner.style.fontWeight = "bold";
-        winner.style.textShadow = "black 1px 0 10px";
-        winner.style.textAlign = "center";
-        winner.style.marginTop = "0px";
-        playerScore = 0;
-        computerScore = 0;
+        setWinnerStyle();
     }
+}
+
+function setWinnerStyle() {
+    winner.style.color = "pink";
+    winner.style.fontWeight = "bold";
+    winner.style.textShadow = "black 1px 0 10px";
+    winner.style.textAlign = "center";
+    resetScore();
+}
+
+function resetScore() {
+    playerScore = 0;
+    computerScore = 0;
 }
 
 /*function game() {
