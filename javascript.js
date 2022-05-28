@@ -1,17 +1,31 @@
 let playerScore = 0;
 let computerScore = 0;
+let computerSelection;
+let playerSelection;
 
-game();
+computerPlay(); 
+
+let rockButton = document.getElementById("rock");
+rockButton.addEventListener('click', () => {
+    playerSelection = rockButton.id;
+    playRound(playerSelection, computerSelection);
+});
+
+let paperButton = document.getElementById("paper");
+paperButton.addEventListener('click', () => {
+    playerSelection = paperButton.id;
+    playRound(playerSelection, computerSelection);
+});
+
+let scissorsButton = document.getElementById("scissors");
+scissorsButton.addEventListener('click', () => {
+    playerSelection = scissorsButton.id;
+    playRound(playerSelection, computerSelection);
+});
 
 function computerPlay() {
     let gameSelections = ["rock", "paper", "scissors"];
-    let computerSelection = gameSelections[Math.floor(Math.random() * 3)];
-    return computerSelection;
-}
-
-function getInput() {
-    let playerSelection = (prompt("Make a selection.")).toLowerCase();
-    return playerSelection;
+    computerSelection = gameSelections[Math.floor(Math.random() * 3)];
 }
 
 function getWinner(playerScore, computerScore) {
@@ -24,9 +38,8 @@ function getWinner(playerScore, computerScore) {
     }
 }
 
-function playRound() {
-    let playerSelection = getInput();
-    let computerSelection = computerPlay();
+function playRound(playerSelection, computerSelection) {
+
     if (playerSelection === computerSelection) {
         console.log("It's a tie!");
     }
