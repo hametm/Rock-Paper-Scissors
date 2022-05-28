@@ -10,6 +10,7 @@ const score = document.getElementById("score");
 const scoreHeader = document.getElementById("scoreHeader");
 const winner = document.createElement("p");
 
+// Get player input and play the game
 btn.forEach(button => {
     button.addEventListener('click', () => {
         playerSelection = button.id;
@@ -18,6 +19,7 @@ btn.forEach(button => {
     })
 });
 
+// Get computer selection
 function computerPlay() {
     let gameSelections = ["rock", "paper", "scissors"];
     computerSelection = gameSelections[Math.floor(Math.random() * 3)];
@@ -76,20 +78,3 @@ function resetScore() {
     playerScore = 0;
     computerScore = 0;
 }
-
-/*function game() {
-    for (let i = 0; i < 5; i++) {
-        playRound();
-    }
-    getWinner(playerScore, computerScore);
-}*/
-
-/*function getWinner(playerScore, computerScore) {
-    if (playerScore > computerScore) {
-        console.log("And the winner is...YOU!");
-    } else if (computerScore > playerScore) {
-        console.log("And the winner is...the computer!");
-    } else {
-        console.log("And the winner is...both of you! It's a tie!");
-    }
-}*/
