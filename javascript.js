@@ -4,6 +4,7 @@ let computerSelection;
 let playerSelection;
 
 const btn = document.querySelectorAll(".selection");
+const resetBtn = document.querySelector("#reset");
 const results = document.getElementById("results");
 const resultText = document.getElementById("resultText");
 const score = document.getElementById("score");
@@ -18,6 +19,8 @@ btn.forEach(button => {
         playRound(playerSelection, computerSelection);
     })
 });
+
+resetBtn.addEventListener('click', resetScore());
 
 // Get computer selection
 function computerPlay() {
@@ -54,24 +57,26 @@ function playRound(playerSelection, computerSelection) {
 function gameOver() {
     if (playerScore === 5) {
         winner.textContent = "You win!";
-        winner.style.fontSize = "36px";
+        winner.style.fontFamily = "'Permanent Marker', cursive";
+        winner.style.fontSize = "48px";
         results.appendChild(winner);
         setWinnerStyle();
+        resetScore();
     }
     if (computerScore === 5) {
         winner.textContent = "You lose! Robots are taking over the world... OUR WORLD!";
-        winner.style.fontSize = "30px";
+        winner.style.fontFamily = "'Permanent Marker', cursive";
+        winner.style.fontSize = "48px";
         results.appendChild(winner);
         setWinnerStyle();
+        resetScore();
     }
 }
 
 function setWinnerStyle() {
-    winner.style.color = "pink";
+    winner.style.color = "darkblue";
     winner.style.fontWeight = "bold";
-    winner.style.textShadow = "black 1px 0 10px";
     winner.style.textAlign = "center";
-    resetScore();
 }
 
 function resetScore() {

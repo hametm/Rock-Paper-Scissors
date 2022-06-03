@@ -1,24 +1,40 @@
+html {
+    height: 100%;
+}
+
 body {
     display: flex;
     flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0px;
-    justify-content: space-between;
-    min-height: 100vh;
-    background-image: url(images/fun_colors.png);
+    align-items: center;
+    justify-content: stretch;
+    background-image: url(images/seashells.jpg);
     background-size: cover;
+    height: 100%;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgb(232, 195, 201);
+    width: 70%;
+    height: 100%;
 }
 
 #header {
+    display: flex;
+    justify-content: center;
 }
 
-.headerText {
-    font-family: 'Poppins', sans-serif;
-    font-size: 52px;
+#headerText {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 75px;
     margin-top: 5px;
     margin-bottom: 5px;
     font-weight: bold;
-    padding-left: 15px;
     color: rgb(247, 240, 33);
     text-shadow: 2px 2px black;
     text-align: center;
@@ -28,42 +44,55 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 0px;
+    padding-top: 10px;
 }
 
 h1 {
     text-align: center;
     font-size: 32px;
-    font-weight: bold;
-    color: rgb(247, 240, 33);
-    text-shadow: 2px 2px black;
+    color: black;
+    font-weight: normal;
 }
 
 h2 {
-    color: white;
-    text-shadow: 2px 2px black;
+    color: black;
 }
 
 #resultText {
     font-size: 18px;
-    
+    color: rgb(7, 7, 80);
+}
+
+.selection {
+    font-size: 78px;
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: beige;
+    border: solid;
+    border-color: grey;
+    border-width: 5px;
+    color: grey;
+    padding: 12px;
+    width: 150px;
+    height: 150px;
 }
 
 #buttons {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 40px;
+    margin-top: 40px;
 }
 
-.selection {
-    font-size: 36px;
-    border-radius: 12px;
-    background-color: white;
-    border: solid;
-    border-color: rgb(7, 7, 80);
-    border-width: 5px;
-    color: rgb(7, 7, 80);
-    padding: 7px;
+button:hover {
+    cursor: pointer;
+    background-color: grey;
+    color: white;
+    box-shadow: 2px 0px 5px grey, 0px 2px 5px grey, -2px 0px 5px grey, 0px -2px 5px grey;
+}
+
+button:active {
+    transform: translate(5px, 5px);
 }
 
 #results {
@@ -71,18 +100,25 @@ h2 {
     flex-direction: column;
     align-items: center;
     flex-grow: 1;
+    margin-top: 20px;
+}
+
+#scoreHeader {
+    color: rgb(78, 76, 76);
+    font-size: 28px;
 }
 
 #footer {
     display: flex;
     justify-content: center;
-    margin-top: auto;
     background-color: rgb(7, 7, 80);
     padding-top: 0px;
     padding-bottom: 0px;
+    width: 100%;
 }
 
 .footerText {
     font-size: 14px;
     color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
