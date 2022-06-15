@@ -17,7 +17,8 @@ const yourScore = document.getElementById("yourScore");
 const theComputerScore = document.getElementById("computerScore");
 const middleHeading = document.querySelector("h3");
 const playAgainButton = document.createElement("button");
-const playAgainDiv = document.querySelector("#playAgain");
+const middleDiv = document.querySelector("#middleTop");
+const pickText = document.getElementById("pickOne");
 
 // Get player input and play the game
 btn.forEach(button => {
@@ -64,45 +65,43 @@ function playRound(playerSelection, computerSelection) {
 function endGame() {
     if (playerScore === 5 && computerScore === 5) {
         winner.textContent = "You both win!";
-        btn.forEach(button => () => {
+        btn.forEach(button => {
             button.disabled = true;
-            console.log("Success");
         });
-        playAgain();
+        insertPlayAgainButton();
+        pickText.classList.add("hidden");
     }
     if (playerScore === 5) {
         winner.textContent = "You win!";
-        btn.forEach(button => () => {
+        btn.forEach(button => {
             button.disabled = true;
-            console.log("Success");
-
         });
-        playAgain();
+        insertPlayAgainButton();
+        pickText.classList.add("hidden");
     }
     if (computerScore === 5) {
         winner.textContent = "The zookeeper wins!";
-        btn.forEach(button => () => {
+        btn.forEach(button => {
             button.disabled = true;
-            console.log("Success");
-
         });
-        playAgain();
+        insertPlayAgainButton();
+        pickText.classList.add("hidden");
     }
-
 }
 
-function playAgain() {
+function insertPlayAgainButton() {
     playAgainButton.classList.add("playAgainButton");
     playAgainButton.textContent = "Play Again";
-    playAgainDiv.appendChild(playAgainButton);
-    btn.forEach(button => () => {
-        button.disabled = false;
-    });
+    middleDiv.appendChild(playAgainButton);
 }
 
 playAgainButton.onclick = () => {
     playAgainButton.remove();
     resetScore();
+    btn.forEach(button => {
+        button.disabled = false;
+    });
+    pickText.classList.remove("hidden");
 }
 
 function resetScore() {

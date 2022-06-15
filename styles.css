@@ -82,6 +82,14 @@ main {
     margin-bottom: 3rem;
 }
 
+#you {
+    margin-left: 20px;
+}
+
+#computer {
+    margin-right: 20px;
+}
+
 #middle {
     display: flex;
     flex-direction: column;
@@ -176,10 +184,11 @@ main {
     margin: 0;
 }
 
-#playAgain {
+#middleTop {
     height: 10%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .playAgainButton {
@@ -194,8 +203,18 @@ main {
     box-shadow: -2px 2p 5px grey;
 }
 
+.hidden {
+    display: none;
+}
+
 .selection:disabled {
-    background-color: rgb(188, 188, 188);
+    background-color: rgb(230, 228, 228);
+    transform: scale(1);
+    cursor: default;
+}
+
+.selection:disabled:hover {
+    
 }
 
 .playAgainButton:hover {
