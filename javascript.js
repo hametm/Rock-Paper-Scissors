@@ -5,17 +5,22 @@ let playerSelection;
 
 const btn = document.querySelectorAll(".selection");
 const resetBtn = document.querySelector("#reset");
-const results = document.getElementById("results");
+const results = document.getElementById("middle");
 const resultText = document.getElementById("resultText");
 const score = document.getElementById("score");
-const scoreHeader = document.getElementById("scoreHeader");
+const scoreHeader = document.getElementsByClassName("scoreHeader");
 const winner = document.getElementById("winner");
 const background = document.getElementById("container");
+const youImage = document.getElementById("you");
+const computerImage = document.getElementById("computer");
+const yourScore = document.getElementById("yourScore");
+const zookeeperScore = document.getElementById("computerScore");
 
 // Get player input and play the game
 btn.forEach(button => {
     button.addEventListener('click', () => {
         playerSelection = button.id;
+        chooseImage();
         computerPlay();
         playRound(playerSelection, computerSelection);
     })
@@ -59,13 +64,13 @@ function gameOver() {
     if (playerScore === 5) {
         winner.textContent = "You win!";
         winner.classList.add("winner");
-        background.classList.add("won"); // Class won't add for some reason
+        // background.classList.add("won"); // Class won't add for some reason
         resetScore();
     }
     if (computerScore === 5) {
-        winner.textContent = "You lose! Robots are taking over the world... OUR WORLD!";
+        winner.textContent = "The zookeeper wins!";
         winner.classList.add("winner");
-        background.classList.add("lost"); // Class won't add for some reason
+        // background.classList.add("lost"); // Class won't add for some reason
         resetScore();
     }
 }
@@ -73,4 +78,43 @@ function gameOver() {
 function resetScore() {
     playerScore = 0;
     computerScore = 0;
+}
+
+function chooseImage() {
+   choosePlayerImage();
+   chooseComputerImage();
+}
+
+function choosePlayerImage() {
+    switch(playerSelection) {
+        case "rock":
+            youImage.style.backgroundImage = "url(images/lion.png)";
+            break;
+        case "paper":
+            youImage.style.backgroundImage = "url(images/tiger.png)";
+            break;
+        case "scissors":
+            youImage.style.backgroundImage = "url(images/bear.png)";
+            break;
+        default:
+            youImage.style.backgroundImage = "";
+            break;
+    }
+}
+
+function chooseComputerImage() {
+    switch(computerSelection) {
+        case "rock":
+            computerImage.style.backgroundImage = "url(images/lion.png)";
+            break;
+        case "paper":
+            computerImage.style.backgroundImage = "url(images/tiger.png)";
+            break;
+        case "scissors":
+            computerImage.style.backgroundImage = "url(images/bear.png)";
+            break;
+        default:
+            computerImage.style.backgroundImage = "";
+            break;
+    }
 }

@@ -12,23 +12,37 @@
     </style>
 </head>
 <body>
-    <div id="container">
-        <header><h1 id="headerText">Rock! Paper! Scissors!</h1></header>
-        <main>
-            <div id="buttons">
+    <header><h1 id="lions">Lions</h1><h1 id="tigers">Tigers</h1><h1 id="bears">Bears</h1></header>
+    <main>
+        <div class="side" id="left">
+            <h2>YOU</h2>
+            <div class="player" id="you">
+                
+            </div>
+            <div class="score" id="yourScore">
+                <h2 class="scoreHeader" >Score: 0</h2>
+            </div>
+        </div>
+        <div id="middle">
+            <div id="winner"></div>
+            <div class="buttonContainer">
                 <button class="selection" id="rock"></button>
                 <button class="selection" id="paper"></button>
                 <button class="selection" id="scissors"></button>
             </div>
-            <div id="results">
-                <div id="winner"></div>
+        </div>
+        <div class="side" id="right">
+            <h2>THE ZOOKEEPER</h2>
+            <div class="player" id="computer">
+                <div class="buttonContainer">
+                    
+                </div>
             </div>
-            <div id="score">
-                <h2 id="scoreHeader">Score: 0 - 0</h2>
+            <div class="score" id="computerScore">
+                <h2 class="scoreHeader">Score: 0</h2>
             </div>
-        </main>
-    </div>
-    <div id="rightSide"></div>
+        </div>
+    </main>
     <!-- <div id="footer">
         <p class="footerText">Made by Morgan</p>
     </div> -->
