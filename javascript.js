@@ -9,7 +9,8 @@ const results = document.getElementById("results");
 const resultText = document.getElementById("resultText");
 const score = document.getElementById("score");
 const scoreHeader = document.getElementById("scoreHeader");
-const winner = document.createElement("p");
+const winner = document.getElementById("winner");
+const background = document.getElementById("container");
 
 // Get player input and play the game
 btn.forEach(button => {
@@ -20,7 +21,7 @@ btn.forEach(button => {
     })
 });
 
-resetBtn.addEventListener('click', resetScore());
+// resetBtn.addEventListener('click', resetScore());
 
 // Get computer selection
 function computerPlay() {
@@ -50,33 +51,23 @@ function playRound(playerSelection, computerSelection) {
     } else {
         console.log("Invalid selection.");
     }
-    scoreHeader.textContent = "You: " + playerScore + "\nComputer: " + computerScore;
+    scoreHeader.textContent = "Score: " + playerScore + " - " + computerScore;
     gameOver();
 }
 
 function gameOver() {
     if (playerScore === 5) {
         winner.textContent = "You win!";
-        winner.style.fontFamily = "'Permanent Marker', cursive";
-        winner.style.fontSize = "48px";
-        results.appendChild(winner);
-        setWinnerStyle();
+        winner.classList.add("winner");
+        background.classList.add("won"); // Class won't add for some reason
         resetScore();
     }
     if (computerScore === 5) {
         winner.textContent = "You lose! Robots are taking over the world... OUR WORLD!";
-        winner.style.fontFamily = "'Permanent Marker', cursive";
-        winner.style.fontSize = "48px";
-        results.appendChild(winner);
-        setWinnerStyle();
+        winner.classList.add("winner");
+        background.classList.add("lost"); // Class won't add for some reason
         resetScore();
     }
-}
-
-function setWinnerStyle() {
-    winner.style.color = "darkblue";
-    winner.style.fontWeight = "bold";
-    winner.style.textAlign = "center";
 }
 
 function resetScore() {
