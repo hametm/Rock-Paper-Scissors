@@ -14,13 +14,15 @@ const background = document.getElementById("container");
 const youImage = document.getElementById("you");
 const computerImage = document.getElementById("computer");
 const yourScore = document.getElementById("yourScore");
-const zookeeperScore = document.getElementById("computerScore");
+const theComputerScore = document.getElementById("computerScore");
+const middleHeading = document.querySelector("h3");
+const playAgainButton = document.createElement("button");
+const playAgainDiv = document.querySelector("#playAgain");
 
 // Get player input and play the game
 btn.forEach(button => {
     button.addEventListener('click', () => {
         playerSelection = button.id;
-        chooseImage();
         computerPlay();
         playRound(playerSelection, computerSelection);
     })
@@ -35,54 +37,85 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    console.log(playerSelection, computerSelection);
-    winner.textContent = "";
+    chooseImage();
     if (playerSelection === computerSelection) {
         playerScore++;
         computerScore++;
-        console.log("It's a tie!");
+        yourScore.textContent = "Score: " + playerScore;
+        theComputerScore.textContent = "Score: " + computerScore;
     }
     else if ((playerSelection === "rock" && computerSelection === "scissors") || 
         (playerSelection === "paper" && computerSelection === "rock") ||
         (playerSelection === "scissors" && computerSelection === "paper")) {
             playerScore++;
-            console.log("Point for you!");
+            yourScore.textContent = "Score: " + playerScore;
         }
     else if ((playerSelection === "rock" && computerSelection === "paper") || 
         (playerSelection === "paper" && computerSelection === "scissors") ||
         (playerSelection === "scissors" && computerSelection === "rock")) {
             computerScore++;
-            console.log("Point for computer...");
+            theComputerScore.textContent = "Score: " + computerScore;
     } else {
-        console.log("Invalid selection.");
+
     }
-    scoreHeader.textContent = "Score: " + playerScore + " - " + computerScore;
-    gameOver();
+    endGame();
 }
 
-function gameOver() {
+function endGame() {
+    if (playerScore === 5 && computerScore === 5) {
+        winner.textContent = "You both win!";
+        btn.forEach(button => () => {
+            button.disabled = true;
+            console.log("Success");
+        });
+        playAgain();
+    }
     if (playerScore === 5) {
         winner.textContent = "You win!";
-        winner.classList.add("winner");
-        // background.classList.add("won"); // Class won't add for some reason
-        resetScore();
+        btn.forEach(button => () => {
+            button.disabled = true;
+            console.log("Success");
+
+        });
+        playAgain();
     }
     if (computerScore === 5) {
         winner.textContent = "The zookeeper wins!";
-        winner.classList.add("winner");
-        // background.classList.add("lost"); // Class won't add for some reason
-        resetScore();
+        btn.forEach(button => () => {
+            button.disabled = true;
+            console.log("Success");
+
+        });
+        playAgain();
     }
+
+}
+
+function playAgain() {
+    playAgainButton.classList.add("playAgainButton");
+    playAgainButton.textContent = "Play Again";
+    playAgainDiv.appendChild(playAgainButton);
+    btn.forEach(button => () => {
+        button.disabled = false;
+    });
+}
+
+playAgainButton.onclick = () => {
+    playAgainButton.remove();
+    resetScore();
 }
 
 function resetScore() {
     playerScore = 0;
     computerScore = 0;
+    yourScore.textContent = "Score: " + playerScore;
+    theComputerScore.textContent = "Score: " + computerScore;
+    winner.textContent = "";
 }
 
 function chooseImage() {
-   choosePlayerImage();
-   chooseComputerImage();
+    choosePlayerImage();
+    chooseComputerImage();
 }
 
 function choosePlayerImage() {
@@ -100,6 +133,7 @@ function choosePlayerImage() {
             youImage.style.backgroundImage = "";
             break;
     }
+    youImage.style.backgroundSize = "9rem"
 }
 
 function chooseComputerImage() {
@@ -117,4 +151,5 @@ function chooseComputerImage() {
             computerImage.style.backgroundImage = "";
             break;
     }
+    computerImage.style.backgroundSize = "9rem"
 }

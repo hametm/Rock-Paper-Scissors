@@ -12,24 +12,30 @@
     </style>
 </head>
 <body>
-    <header><h1 id="lions">Lions</h1><h1 id="tigers">Tigers</h1><h1 id="bears">Bears</h1></header>
+    <header>
+        <div id="headerWords">
+            <h1 id="lions">Lions</h1><h1 id="tigers">Tigers</h1><h1 id="bears">Bears</h1>
+        </div>
+        <p>Like Rock-Paper-Scissors, but better.</p>
+
+    </header>
     <main>
         <div class="side" id="left">
             <h2>YOU</h2>
             <div class="player" id="you">
                 
             </div>
-            <div class="score" id="yourScore">
-                <h2 class="scoreHeader" >Score: 0</h2>
-            </div>
+            <p class="score" id="yourScore">Score: 0</div>
         </div>
         <div id="middle">
-            <div id="winner"></div>
+            <div id="playAgain"></div>
+            <h3>Pick one:</h3>
             <div class="buttonContainer">
                 <button class="selection" id="rock"></button>
                 <button class="selection" id="paper"></button>
                 <button class="selection" id="scissors"></button>
             </div>
+            <div id="winner"></div>
         </div>
         <div class="side" id="right">
             <h2>THE ZOOKEEPER</h2>
@@ -38,13 +44,11 @@
                     
                 </div>
             </div>
-            <div class="score" id="computerScore">
-                <h2 class="scoreHeader">Score: 0</h2>
-            </div>
+            <p class="score" id="computerScore">Score: 0</div>
         </div>
     </main>
-    <!-- <div id="footer">
+    <div id="footer">
         <p class="footerText">Made by Morgan</p>
-    </div> -->
+    </div>
 </body>
 </html>
