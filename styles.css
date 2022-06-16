@@ -193,6 +193,7 @@ main {
 
 .playAgainButton {
     background-color: blue;
+    margin-bottom: 30px;
     color: white;
     border-radius: 5px;
     width: 40%;
