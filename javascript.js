@@ -105,8 +105,8 @@ function resetImages() {
     computerImage.style.boxShadow = "";
     playerImage.style.backgroundImage = "url(images/question-mark.png)";
     computerImage.style.backgroundImage = "url(images/question-mark.png)";
-    playerImage.style.backgroundSize = "7rem";
-    computerImage.style.backgroundSize = "7rem";
+    playerImage.style.backgroundSize = "30%";
+    computerImage.style.backgroundSize = "30%";
 }
 
 function togglePickDisplay() {
@@ -158,7 +158,7 @@ function choosePlayerImage() {
             playerImage.style.backgroundImage = "";
             break;
     }
-    playerImage.style.backgroundSize = "9rem"
+    playerImage.style.backgroundSize = "50%"
 }
 
 function chooseComputerImage() {
@@ -176,5 +176,5 @@ function chooseComputerImage() {
             computerImage.style.backgroundImage = "";
             break;
     }
-    computerImage.style.backgroundSize = "9rem"
+    computerImage.style.backgroundSize = "50%"
 }
