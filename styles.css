@@ -39,7 +39,7 @@ h1 {
 
 h3 {
     text-align: center;
-    margin: 0;
+    margin-top: 30px;
 }
 
 #lions {
@@ -76,6 +76,7 @@ main {
     font-size: 3rem;
     height: 10%;
     text-align: center;
+    margin-top: 20px;
 }
 
 .side, #middle {
@@ -193,7 +194,7 @@ main {
 
 .playAgainButton {
     background-color: blue;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     color: white;
     border-radius: 5px;
     width: 40%;
