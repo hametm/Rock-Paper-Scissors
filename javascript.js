@@ -45,15 +45,15 @@ function playRound(playerSelection, computerSelection) {
         computerScore++;
         displayScore();
     }
-    else if ((playerSelection === "rock" && computerSelection === "scissors") || 
-        (playerSelection === "paper" && computerSelection === "rock") ||
-        (playerSelection === "scissors" && computerSelection === "paper")) {
+    else if ((playerSelection === "rock" && computerSelection === "scissors") 
+            || (playerSelection === "paper" && computerSelection === "rock") 
+            || (playerSelection === "scissors" && computerSelection === "paper")) {
             playerScore++;
             displayScore();
         }
-    else if ((playerSelection === "rock" && computerSelection === "paper") || 
-        (playerSelection === "paper" && computerSelection === "scissors") ||
-        (playerSelection === "scissors" && computerSelection === "rock")) {
+    else if ((playerSelection === "rock" && computerSelection === "paper") 
+            || (playerSelection === "paper" && computerSelection === "scissors") 
+            || (playerSelection === "scissors" && computerSelection === "rock")) {
             computerScore++;
             displayScore();
     } 
@@ -156,7 +156,6 @@ function choosePlayerImage() {
             break;
         default:
             playerImage.style.backgroundImage = "";
-            break;
     }
     playerImage.style.backgroundSize = "50%"
 }
@@ -174,7 +173,6 @@ function chooseComputerImage() {
             break;
         default:
             computerImage.style.backgroundImage = "";
-            break;
     }
     computerImage.style.backgroundSize = "50%"
 }
